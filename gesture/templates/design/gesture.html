@@ -1,0 +1,92 @@
+
+{% load static %}
+
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link href="{%static '/css/style.css' %}" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+    <link href="{%static '/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+      <header id="header" style="background-color: #f6f6fb; height: 65px;">
+
+        <div class="container">
+    
+          <div class="logo float-left">
+            <!-- Uncomment below if you prefer to use an image logo -->
+            <h2 class="text-light" style="margin:0px 0px 2px 0px; font-size: 25px;"><a href="/" class="scrollto"><span>Gesture Recognization</span></a></h2>
+            <!-- <a href="#header" class="scrollto"><img src="img/logo.png" alt="" class="img-fluid"></a> -->
+          </div>
+          <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+                <li class="active" style="margin: 0px;"><a href="/">Home</a></li>
+            </ul>
+          </nav>
+          
+        </div>
+      </header><!-- #header -->
+
+    <div class="container" style="text-align: center; margin-top: 10%;">
+        <h1><time>00:00:00</time></h1>
+        <button type="button" class="btn btn-success" id="start">start</button>
+        <button type="button" class="btn btn-danger" id="stop">stop</button>
+        <button type="button" class="btn btn-secondary" id="clear">clear</button>
+    </div>
+
+    <div class="container" style="margin-top: 60px;">
+        <div class="text-center"><a href="https://www.the-qrcode-generator.com/scan" target="_blank"><button class="camera-button" type="submit" title="open camera">Open Camera</button></a></div>
+    </div>
+
+    <script>
+        var h1 = document.getElementsByTagName('h1')[0],
+            start = document.getElementById('start'),
+            stop = document.getElementById('stop'),
+            clear = document.getElementById('clear'),
+            seconds = 0, minutes = 0, hours = 0,
+            t;
+
+        function add() {
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes >= 60) {
+                    minutes = 0;
+                    hours++;
+                }
+            }
+
+            h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+
+            timer();
+        }
+        function timer() {
+            t = setTimeout(add, 1000);
+        }
+        timer();
+
+
+        start.onclick = timer;
+
+        stop.onclick = function () {
+            clearTimeout(t);
+        }
+
+        clear.onclick = function () {
+            h1.textContent = "00:00:00";
+            seconds = 0; minutes = 0; hours = 0;
+        }
+    </script>
+
+</body>
+
+</html>
