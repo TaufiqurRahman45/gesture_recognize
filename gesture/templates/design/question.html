@@ -1,0 +1,132 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <title>Questions</title>
+    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static '/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+    <link href="{%static '/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <link href="{%static '/css/style.css' %}" rel="stylesheet">
+
+    <link href="{%static '/css/qa.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+    <header id="header" style="background-color: #f6f6fb; height: 65px;">
+
+        <div class="container">
+
+            <div class="logo float-left">
+                <h2 class="text-light" style="margin:0px 0px 2px 0px; font-size: 20px;"><a href="/"
+                        class="scrollto"><span>Predicting Fatigue in Hand Gesture</span></a></h2>
+            </div>
+            <nav class="main-nav float-right d-none d-lg-block">
+                <ul>
+                    <li class="active" style="margin: 0px;"><a href="/">Home</a></li>
+                </ul>
+            </nav>
+
+        </div>
+    </header>
+
+    <div class="container" id="page-wrap" style="margin-bottom: 10%;">
+
+        <h1 style="margin-top:22%;">Question for Fatigue Challenges</h1>
+
+        <form id="quiz">
+
+            <ol>
+
+                <li>
+
+                    <h3>Did you feel any muscle tension or discomfort while performing the gesture?</h3>
+
+                    <div>
+                        <input type="radio" name="question-1-answers" id="question-1-answers-A" value="A" />
+                        <label for="question-1-answers-A">Yes </label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="question-1-answers" id="question-1-answers-B" value="B" />
+                        <label for="question-1-answers-B">B) No</label>
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <h3>Wrist positioning</h3>
+
+                    <div>
+                        <input type="checkbox" name="question-2-answers" id="question-2-answers-A" value="A" />
+                        <label for="question-2-answers-A">Upper shoulder</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" name="question-2-answers" id="question-2-answers-B" value="B" />
+                        <label for="question-2-answers-B">Lower shoulder</label>
+                    </div>
+
+                </li>
+
+                <li>
+
+                    <h3>How many times do you repeate this gesture in a day?</h3>
+
+                    <div>
+                        <input type="radio" name="question-3-answers" id="question-3-answers-A" value="A" />
+                        <label for="question-3-answers-A">1-4</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="question-3-answers" id="question-3-answers-B" value="B" />
+                        <label for="question-3-answers-B">5-10</label>
+                    </div>
+
+                    <div>
+                        <input type="radio" name="question-3-answers" id="question-3-answers-C" value="C" />
+                        <label for="question-3-answers-C">More than 10</label>
+                    </div>
+
+                </li>
+
+
+                
+            </ol>
+
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Submit</button>
+
+        </form>
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Result</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  Your Score is 80%
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+    </div>
+
+
+</body>
+
+</html>

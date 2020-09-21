@@ -8,3 +8,6 @@ def home(request):
 
 def gesture(request):
     return render(request, 'design/gesture.html')
+
+def question(request):
+    return render(request, 'design/question.html')
