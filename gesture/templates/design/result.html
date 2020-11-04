@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE HTML>
+
+<head>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+    <title>Questions</title>
+    <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="{% static '/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
+
+    <link href="{% static '/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
+
+    <link href="{% static '/css/style.css' %}" rel="stylesheet">
+
+    <link href="{% static '/css/qa.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+<header id="header" style="background-color: #f6f6fb; height: 65px;">
+
+    <div class="container">
+
+        <div class="logo float-left">
+            <h2 class="text-light" style="margin:0px 0px 2px 0px; font-size: 20px;"><a href="/" class="scrollto"><span>Predicting Fatigue in Hand Gesture</span></a></h2>
+        </div>
+        <nav class="main-nav float-right d-none d-lg-block">
+            <ul>
+                <li class="active" style="margin: 0px;"><a href="/">Home</a></li>
+            </ul>
+        </nav>
+
+    </div>
+</header>
+
+<div class="container" id="page-wrap" style="margin-bottom: 10%;">
+
+
+    <h1 style="margin-top:22%; text-align: center;">Result</h1>
+    <h5>Actual time: {{ actual_time }} seconds</h5>
+    <h5>Taken time: {{ taken_time }} seconds</h5>
+    <h5>Point: {{ point }}</h5>
+
+    {% if point < 25 %}
+        <div class="alert alert-success" role="alert">
+            This is a success alert—check it out!
+        </div>
+    {% elif point >= 25 and point <= 29 %}
+        <div class="alert alert-warning" role="alert">
+            This is a warning alert—check it out!
+        </div>
+    {% elif point >= 30 and point <= 35 %}
+        <div class="alert alert-danger" role="alert">
+            This is a danger alert—check it out!
+        </div>
+    {% endif %}
+
+
+</div>
+
+
+</body>
+
+</html>
