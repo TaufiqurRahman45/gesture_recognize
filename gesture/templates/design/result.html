@@ -51,15 +51,15 @@
     <h5>Taken time: {{ taken_time }} seconds ({{ taken_seconds }} seconds)</h5>
     <h5>Point: {{ point }}</h5>
 
-    {% if actual_time < taken_seconds %}
-        <div class="alert alert-warning" role="alert">
-            Time taken is higher than actual time which may lead to fatigue.
-        </div>
-    {% elif actual_time > taken_seconds %}
-        <div class="alert alert-success" role="alert">
-            Time taken is lower than actual time of gesturing.
-        </div>
-    {% endif %}
+{#    {% if actual_time < taken_seconds %}#}
+{#        <div class="alert alert-warning" role="alert">#}
+{#            Time taken is higher than actual time which may lead to fatigue.#}
+{#        </div>#}
+{#    {% elif actual_time > taken_seconds %}#}
+{#        <div class="alert alert-success" role="alert">#}
+{#            Time taken is lower than actual time of gesturing.#}
+{#        </div>#}
+{#    {% endif %}#}
 
     <div id="myFirstwidget-container">{{ output|safe }}</div>
 
