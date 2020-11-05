@@ -5,10 +5,12 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
-    <title>Questions</title>
+    <title>Result</title>
     <link href="{% static 'lib/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="{% static '/lib/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+    <script type="text/javascript" src="https://cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 
     <link href="{% static '/lib/font-awesome/css/font-awesome.min.css' %}" rel="stylesheet">
@@ -16,6 +18,11 @@
     <link href="{% static '/css/style.css' %}" rel="stylesheet">
 
     <link href="{% static '/css/qa.css' %}" rel="stylesheet">
+    <style>
+        svg > g[class^="raphael-group-"] > text {
+            display: none;
+        }
+    </style>
 
 </head>
 
@@ -41,26 +48,23 @@
 
     <h1 style="margin-top:22%; text-align: center;">Result</h1>
     <h5>Actual time: {{ actual_time }} seconds</h5>
-    <h5>Taken time: {{ taken_time }} seconds</h5>
+    <h5>Taken time: {{ taken_time }} seconds ({{ taken_seconds }} seconds)</h5>
     <h5>Point: {{ point }}</h5>
 
-    {% if point < 25 %}
-        <div class="alert alert-success" role="alert">
-            This is a success alert—check it out!
-        </div>
-    {% elif point >= 25 and point <= 29 %}
+    {% if actual_time < taken_seconds %}
         <div class="alert alert-warning" role="alert">
-            This is a warning alert—check it out!
+            Time taken is higher than actual time which may lead to fatigue.
         </div>
-    {% elif point >= 30 and point <= 35 %}
-        <div class="alert alert-danger" role="alert">
-            This is a danger alert—check it out!
+    {% elif actual_time > taken_seconds %}
+        <div class="alert alert-success" role="alert">
+            Time taken is lower than actual time of gesturing.
         </div>
     {% endif %}
 
+    <div id="myFirstwidget-container">{{ output|safe }}</div>
+
 
 </div>
-
 
 </body>
 
