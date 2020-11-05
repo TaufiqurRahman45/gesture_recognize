@@ -51,6 +51,7 @@
 
                 <input type="hidden" name="actual_time" value="{{ gesture_image.time }}">
                 <input type="hidden" name="taken_time" value="00:00:00" id="taken_time">
+                <input type="hidden" name="taken_seconds" value="00" id="taken_seconds">
                 <input type="hidden" name="type" value="gesture">
 
                 <h1>
@@ -105,6 +106,7 @@
     let h1 = document.getElementsByTagName('h1')[0],
         start = document.getElementById('start'),
         taken_time = document.getElementById('taken_time'),
+        taken_seconds = document.getElementById('taken_seconds'),
         stop = document.getElementById('stop'),
         clear = document.getElementById('clear'),
         next = document.getElementById('next'),
@@ -121,6 +123,7 @@
             }
         }
 
+        taken_seconds.value = seconds;
         h1.textContent = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
         taken_time.value = (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
 
