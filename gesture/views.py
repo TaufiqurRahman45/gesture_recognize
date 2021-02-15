@@ -89,23 +89,27 @@ def result(request):
     widgetConfig["lowerLimit"] = "0"
     widgetConfig["upperLimit"] = "25"
     widgetConfig["showValue"] = "1"
-    widgetConfig["numberSuffix"] = ""
+    widgetConfig["numberSuffix"] = "%"
     widgetConfig["theme"] = "fusion"
     widgetConfig["showToolTip"] = "0"
+    widgetConfig["valueBelowPivot"] = "1"
 
     # The `colorData` dict contains key-value pairs of data for ColorRange of dial
     colorRangeData = OrderedDict()
     colorRangeData["color"] = [
+       
         {
             "minValue": "0",
             "maxValue": "15",
             "code": "#62B58F"
-        },
-        {
+        }, 
+        
+         {
             "minValue": "16",
             "maxValue": "25",
             "code": "#F2726F"
-        }
+        },
+        
     ]
 
     # Convert the data in the `dialData` array into a format that can be consumed by FusionCharts.

@@ -54,7 +54,7 @@
     {% if actual_time < taken_seconds %}
         <div class="alert alert-warning" role="alert">
             Time taken is higher than actual time which may lead to fatigue.
-        </div>#}
+        </div>
     {% elif actual_time > taken_seconds %}
         <div class="alert alert-success" role="alert">
             Time taken is lower than actual time of gesturing.
@@ -63,7 +63,15 @@
 
     <div id="myFirstwidget-container">{{ output|safe }}</div>
 
-
+    {% if point < 15 %}
+    <div class="alert alert-warning" role="alert" style="text-align: center; font-size: large;">
+        Result: You have <b>less</b> chance of fatigue .
+    </div>#}
+    {% elif point > 16 %}
+    <div class="alert alert-danger" role="alert" style="text-align: center; font-size: large;">
+        Result: You have <b>higher</b> chance of fatigue.
+    </div>
+    {% endif %}
 </div>
 
 </body>
